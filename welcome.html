@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEM VINDOS :)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg"></div>
+
+    <div class="criterion">
+        <h1></h1>
+    </div>
+
+    <script>
+        var texts = ['B', 'E', 'M', ' ', ' ', 'V', 'I', 'N', 'D', 'O', 'S', ' ', ' ', ':', ')'];
+        var rainbowColors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3'];
+        var currentIndex = 0;
+        var rainContainer = document.querySelector('.criterion');
+
+        function addLetter() {
+            if (currentIndex >= texts.length) return;
+            var letter = document.createElement('span');
+            letter.textContent = texts[currentIndex];
+            letter.style.color = rainbowColors[currentIndex % rainbowColors.length];
+            letter.classList.add('letter');
+            letter.style.opacity = 0;
+            letter.style.animation = 'fadeIn 1s forwards';
+            rainContainer.appendChild(letter);
+            currentIndex++;
+            setTimeout(addLetter, 100);
+        }
+        addLetter();
+    </script>
+</body>
+</html>
